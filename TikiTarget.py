@@ -16,3 +16,12 @@ class TikiTarget:
             newList[i] = newList[i].strip()
             i += 1
         return newList
+
+    def getKeyword(self):
+        keyword = ""
+        for key in self.patterns:
+            keyword = keyword + " " + key
+        return keyword
+
+    def getSearchLink(self, pageNum):
+        return self.categoryUrl+"?q="+ self.getKeyword() + "&ref=categorySearch&page=" + str(pageNum)

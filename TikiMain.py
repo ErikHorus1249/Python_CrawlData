@@ -1,23 +1,20 @@
 
 from TikiTarget import TikiTarget
+from TikiHelper import *
+import requests
 
 TARGET_fILE = "target_list.txt"
-targetFile = open(TARGET_fILE,"r")
-lines = targetFile.readlines()
-targetFile.close()
 
-n = len(lines)
+targets = getTargetFromFile(TARGET_fILE)
 
-print(n)
-i = 0
-while i < n-1:
-    newTarget = TikiTarget(lines[i].strip(),lines[i+1].strip())
-    print(newTarget.info())
-    i += 2
+# for target in targets:
+#     print(target.info())
 
-print("----End----")
-# for line in lines:
-#     # print(line.strip())
-#     newLine = line.strip()
-#     newTarget =  TikiTarget(newLine, newLine)
-#     print(newTarget.info())
+
+#########################
+
+target = targets[0]
+searchLink = target.getSearchLink(2)
+response =  requests.get(searchLink)
+# print(searchLink)
+print(response.text)
