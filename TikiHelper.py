@@ -17,3 +17,10 @@ def getTargetFromFile(fileName):
         i += 2
     return targets
     print("----End----")
+
+def convertToPrice(strPrice):
+    strPrice = strPrice.replace('.','')
+    strPrice = strPrice.replace('đ','')
+    return int(strPrice)
+
+    
