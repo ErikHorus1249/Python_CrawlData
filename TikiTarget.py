@@ -1,14 +1,15 @@
 
-
+# class Tiki_target : 
 class TikiTarget:
+    # init function()
     def __init__(self, patternsStr="", categoryStr=""):
         self.patternsString = patternsStr 
         self.patterns = self.__SplitPattern()
         self.categoryUrl = categoryStr
-
+    # check function
     def info(self):
         return "patterns : " + str(self.patterns[1]) + "categoriesUrl : "+self.categoryUrl
-    
+    # 
     def __SplitPattern(self):
         newList = self.patternsString.split(",")
         i = 0
